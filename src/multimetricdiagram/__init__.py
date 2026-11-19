@@ -25,6 +25,8 @@ functions (including helper functions), usage examples, and notes about the code
 D. Codiga, with Claude agents, 11/2026
 """
 
+from importlib.metadata import version as _version
+
 from . import alt as alt  # pylint: disable=useless-import-alias  # explicit re-export
 from ._text import text_polar
 from .axes import make_fig_axes
@@ -33,7 +35,7 @@ from .legend import add_labeledmarker_legend
 from .markerstick import add_markerstick
 from .metrics import calculate_metrics
 
-__version__ = "0.1.0"
+__version__ = _version("multimetricdiagram")
 
 __all__ = [  # noqa: RUF022 (kept in workflow order)
     "calculate_metrics",
