@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multimetricdiagram"
+dynamic = ["version"]
+description = "Multimetric diagram: 5-metric (total/bias/pattern/amplitude/phase) alternative, that rewards realistic variance, to Taylor diagram"
+readme = "README.md"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+authors = [{ name = "Daniel L. Codiga", email = "dcodiga@uri.edu" }]
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26",
+    "matplotlib>=3.8",
+]
+keywords = ["model evaluation", "skill assessment", "Taylor diagram", "oceanography", "matplotlib"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+
+[project.urls]
+Homepage = "https://github.com/oceanmodeling/multimetricdiagram"
+Repository = "https://github.com/oceanmodeling/multimetricdiagram"
+Issues = "https://github.com/oceanmodeling/multimetricdiagram/issues"
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-cov"]
+dev = ["ruff", "pylint"]
+
+[tool.setuptools.dynamic]
+version = { attr = "multimetricdiagram.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["multimetricdiagram"]
+
+[tool.ruff]
+line-length = 99
+
+[tool.ruff.format]
+quote-style = "preserve"
+# the usage examples mirror the README code blocks, formatted by hand: lint them, don't format
+exclude = ["usage_examples/*"]

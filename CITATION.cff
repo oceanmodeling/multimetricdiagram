@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the manuscript below."
+title: "multimetricdiagram"
+type: software
+authors:
+  - family-names: Codiga
+    given-names: Daniel L.
+    email: dcodiga@uri.edu
+license: BSD-3-Clause
+repository-code: "https://github.com/oceanmodeling/multimetricdiagram"
+version: 0.1.0
+preferred-citation:
+  type: article
+  status: submitted
+  title: "Improved Evaluation and Communication of Model–Observation Comparisons: The Diagnostic Index of Agreement with Symmetry, and the Multimetric Diagram as an Alternative to the Taylor Diagram"
+  authors:
+    - family-names: Codiga
+      given-names: Daniel L.
+  year: 2026

@@ -1,0 +1,32 @@
+name: Pylint
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "**.py"
+      - ".github/workflows/*.yml"
+      - "pyproject.toml"
+      - ".pylintrc"
+  pull_request:
+    paths:
+      - "**.py"
+      - ".github/workflows/*.yml"
+      - "pyproject.toml"
+      - ".pylintrc"
+  workflow_dispatch:
+
+jobs:
+  pylint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install dependencies
+        run: python -m pip install -e .[dev]
+      - name: Analysing the code with pylint
+        # settings (score threshold 9.90, fail on any error) are in .pylintrc
+        run: pylint src/multimetricdiagram
